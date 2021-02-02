@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" name="HTML forms, HTML inputs" content="Notes about HTML forms and HTML inputs" />
+    <title>HTML - Forms and Inputs</title>
+</head>
+
+<body>
+    <!--
+            <form action='/users/create' method='post'>
+		        <input ...
+		        <input ...
+            </form>
+
+            action: Specifies the URL of the servlet or JSP that's called when the user clicks on the submit button.
+            method: Specifies the HTTP method that the browser uses for the HTTP request. The default method is the GET method, but the POST method is also commonly used, especially when the request includes data that must be saved on the server.
+            Other methods: Put, Delete
+        -->
+    <!--
+        Form Input Elements
+
+        <input type="text">: Displays a single-line text input field
+        <input type="radio">: Displays a radio button (for selecting one of many choices)
+        <input type="checkbox">: Displays a checkbox (for selecting zero or more of many choices)
+        <input type="submit">: Displays a submit button (for submitting the form)
+        <input type="button">: Displays a clickable button (also <button></button>)
+        <input type="reset">: Resets the values of form inputs
+
+    -->
+    <h2>Form 1 (text, password, submit, reset inputs)</h2>
+    <!--
+        <label> tag defines label for form inputs.
+            The for attribute should be equal to the id value of the input element to bind them together.
+        
+        Notice that every input must have a value for the attribute name to be allowed to be submitted.
+            If an input doesn't have this attribute, it won't be submitted (when the form is sent to the server-side app)
+            id attribute is used for client-side processing (javascript could refer to the element using id); name attribute is used to send input data to server-side
+    -->
+    <form method="GET">
+        <label for="strUName">Username</label>
+        <br />
+        <input type="text" id="strUName" name="strUName" required autofocus />
+        <br />
+        <label for="strPass">Password</label>
+        <br />
+        <input type="password" id="strPass" name="strPass" required />
+        <br />
+        <input type="submit" value="Submit" />
+        <input type="reset" value="Reset" />
+    </form>
+    <button>Button outside a form using button element</button>
+    <input type="button" value="another button outside a form using input element" />
+    <h2>Form 2 (radio buttons)</h2>
+    <!--
+        Notice that radio buttons that should be grouped together have same name, but different id
+        
+    -->
+    <form>
+        <input type="radio" id="rbMale" name="gender" value="male" />
+        <label for="rbMale">Male</label>
+        <br />
+        <input type="radio" id="rbFemale" name="gender" value="female" />
+        <label for="rbFemale">Female</label>
+        <br />
+        <input type="radio" id="rbOther" name="gender" value="other" />
+        <label for="rbOther">Male</label>
+        <br />
+    </form>
+    <h2>Form 3 (checkboxes)</h2>
+    <!--
+        No need to have same name for each checkbox input element since one can select more than one option
+    -->
+    <form>
+        <input type="checkbox" id="cbVehicle1" name="cbVehicle1" value="bike" />
+        <label for="cbVehicle1">I have a bike</label>
+        <br />
+        <input type="checkbox" id="cbVehicle2" name="cbVehicle2" value="car" />
+        <label for="cbVehicle2">I have a car</label>
+        <br />
+        <input type="checkbox" id="cbVehicle3" name="cbVehicle3" value="boat" />
+        <label for="cbVehicle3">I have a boat</label>
+    </form>
+    <h2>Form 4 (dropdown lists)</h2>
+    <!--
+        Important attributes
+            <select> attributes: size, multiple(select more than one option)
+            <option> attributes: selected(default value)
+    -->
+    <form>
+        <label for="dlCars">Choose a car:</label>
+        <select id="dlCars" name="dlCars">
+            <option value="honda">Honda Civic Type-R</option>
+            <option value="toyota">Toyota Supra</option>
+            <option value="bmw" selected>BMW M3</option>
+            <option value="audi">Audi R8</option>
+            <option value="mercedes">Mercedes-Benz C63 AMG</option>
+            <option value="subaru">Subaru WRX STI</option>
+        </select>
+    </form>
+    <h2>Other important HTML elements (textarea, button, iframe, video, audio, canvas, svg)</h2>
+    <!-- rows/cols are optional -->
+    <textarea name="message" rows="10" cols="30">hello welcome to html5</textarea>
+    <br>
+    <button>Click me</button>
+    <br>
+    <!--
+        allows for a webpage nested in a webpage
+    -->
+    <iframe src="https://www.ucdenver.edu/" width="420" height="315"></iframe>
+    <!--
+        <video width="320" height="240" controls>
+            <source src="movie.mp4" type="video/mp4">
+            <source src="movie.ogg" type="video/ogg">
+            Your browser does not support the video tag.
+        </video>
+
+        <audio controls>
+            <source src="horse.ogg" type="audio/ogg">
+            <source src="horse.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <canvas>: used to draw graphics, on the fly, via JavaScript.
+        <svg>: a container for SVG graphics. SVG has several methods for drawing paths, boxes, circles, text, and graphic images.
+    -->
+    <br>
+    <div>svg</div>
+    <svg width="100" height="100">
+        <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+    </svg>
+    <!--
+        Some Important Attributes of Elements
+        readonly
+            <input type="text" id="fname" name="fname" value="John" readonly>
+        required
+        disabled
+        autofocus
+        size
+        maxlength
+        min, max
+        height, weight
+    -->
+    <br>
+    <div>Important input attributes</div>
+    <input type="text" id="fname" name="fname" value="John" readonly>
+
+</html>
