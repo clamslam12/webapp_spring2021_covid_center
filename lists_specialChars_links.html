@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>HTML - Lists, Special Characters, Links</title>
+    </head>
+    <body>
+        <p>Lists are block elements. Unordered (ul) list, ordered list (ol), description list (dl)</p>
+        <p>Some important attributes for ordered lists
+
+            Start=‘10': Start the list from 10.....;
+            Reversed
+        </p>
+        <p>You can also nest lists within lists.</p>
+        <h4 id="header1">Simple ordered list</h5>
+        <ol>
+            <li>milk</li>
+            <li>eggs</li>
+        </ol>
+        <h4>Ordered list with attributes start="2" and reversed</h4>
+        <ol start="2" reversed>
+            <li>juice</li>
+            <li>cookies</li>
+        </ol>
+        <h4>Nested lists: ordered list and description list nested inside unordered list</h4>
+        <ul>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>
+                <ol>
+                    <li>item 2.1</li>
+                    <li>item 2.2</li>
+                </ol>
+            </li>
+            <li>
+                <dl>
+                    <dt>coffee</dt>
+                    <dd>hot black drink</dd>
+                    <dt>milk</dt>
+                    <dd>cold white drink</dd>
+                </dl>
+            </li>
+        </ul>
+        <h4>Special Characters</h4>
+        <p>&amp;, &lt;, &gt;</p>
+        <p>&lt; dl &gt; - defines the description list</p>
+        <p>&lt; dt &gt; - defines the defines the term (name)</p>
+        <p>&lt; dd &gt; - describes each term.</p>
+        <p>&lt; br &gt; - line break</p>
+        <p>&nbsp; - space</p>
+        <br>
+        <br>
+        <br>
+        <h4>Links</h4> 
+        <p>both block and inline element</p>
+        <p>You can nest a div or a span inside &lt;a &gt; &lt; /a &gt; tags</p>
+        <p>Relative to the current directory</p>
+        Please search below:
+        <div>
+            <a href="https://www.google.com"> Search google here...</a>
+        </div>
+        <br>
+        Please search next to here: <span><a href="https://www.google.com"> Search google here...</a></span>
+        <h5>Relative to the current directory:</h5>
+        <div>
+            <a href="index.html"> go to index.html</a>
+            <br>
+            &lt; a href=“email/join.html">link text &lt;/a>
+            <br>
+            <a href="../index.html"> go back one directory level ../index.html</a>
+        </div>
+        <h5>Relative to the webapp directory</h5>
+        <div>
+            &lt;a href=“/">root directory of web server &lt;/a&gt;
+            <br>
+            &lt;a href=“/musicStore">root directory of musicStore app &lt;/a&gt;
+        </div>
+        <h5>Absolute URLs</h5>
+        <div>
+            &lt;a href=“https://wwww.google.com">an Internet domain &lt;/a&gt;
+            <br>
+            &lt;a href=“http://64.71.179.68/email">an IP address &lt;/a&gt;
+        </div>
+        <h5>Creating Links (cont.)</h5>
+        <div>
+            <a href="index.html" target="_blank">opens index.html in a new tab</a>
+            <br>
+            <a href="index.html" target="_self">opens index.html in the same tab</a>
+            <br>
+            <a href="#header1">jump to a specific element in the page, ie... Simple ordered list header; # in URL identifies a fragment</a>
+            <br>
+            <a href="mailto:someone@example.com">link that opens user's email program</a>
+        </div>
+         
+    </body>
+</html>
