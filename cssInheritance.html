@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>CSS - Inheritance</title>
+    </head>
+    <!--
+        Inheritance rule: if a property is defined for an element, it is applied to all its children and descendants, unless explicitly changed.
+
+        Not all, but some CSS property values set on parent elements are inherited by their child elements
+
+        For example, if you set a color and font-family on an element, every element inside it will also be styled with that color and font, 
+        unless you've applied different color and font values directly to them.
+    -->
+
+    <style>
+        
+        body {
+            color: red;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+
+        p {
+            color: blue;
+        }
+
+
+    </style>
+    <body>
+        <!--
+            all elements except p and its children inherits body 
+            CSS declarations, unless explicitly changed
+        -->
+        <h1>CSS Inheritance (h1)</h1>
+        <h2>h2 element</h2>
+        <p>Inheritance allows us to write more global styles on parent elements and 
+            then "fine-tune" the styles for some of the <span style="color: green;">child elements</span> as needed. 
+            Such approach makes writing CSS very efficient
+        </p>
+        <h2 style="color: orange;">another h2 element. color explicitly changed 
+            so it does NOT inherit body color declaration, but it DOES inherit all other body declarations</h2>
+        <p>another paragraph here is blue because of more fine-tuned rule for p elements.</p>
+        <span>But this text here inherits color and all declarations from body</span>
+        
+    </body>
+</html>

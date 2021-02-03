@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>CSS - Conflict Resolution</title>
+    </head>
+    <!--
+        Conflict happens when different CSS rules assign different values to the same property
+
+    ***** Specifity rule: More specific CSS rules win! *****
+        More specific > ---------------------------- > Less specific
+        Inline style > id selector > class selector > type selector
+
+    ***** Origin precedence rule: If the same property of an element is defined in multiple CSS all with the same specifity level, 
+    the last definition (in the order rendered by the browser – sequential order) wins *****
+        Inline style > embedded style > external style
+
+    ***** Declarations merge: 
+        However, if different CSS rules define different properties for an element, these properties are all applied to the element.
+
+
+    -->
+
+    <style>
+        /* class selector */
+        .blurb {
+            color: red;
+        }
+
+        .blurb2 {
+            color: purple;
+        }
+
+        .blurb3 {
+            font-size: 30px;
+        }
+
+        /* type selector */
+        p {
+            color: green;
+        }
+
+        /* id selector */
+        #mainPoint {
+            color: blue;
+        }
+
+        
+
+    </style>
+    <body>
+        <!--
+            Specificity rule; 
+        -->
+        <p class="blurb" id="mainPoint">p element with class="blurb" id="mainPoint"</p>
+        <p class="blurb" id="mainPoint" style="color: chocolate;">p element with class="blurb" id="mainPoint" with inline style="color: chocolate"</p>
+        <!--
+            .blurb2 wins because it is the last class definition in styles rendered by the browser
+        -->
+        <p class="blurb2 blurb">p element with class="blurb2 blurb"</p>
+        <!--
+            example of declarations merge. p element have different CSS rules that define different properties, so all properties apply to it.
+        -->
+        <p class="blurb3">p element with class="blurb3"</p>
+
+    </body>
+</html>
