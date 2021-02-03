@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>CSS - Box Model</title>
+        <!--
+            ***** Box model: consider a webpage as a set of boxes. *****
+
+            Principle: When designing, elements/objects should be placed in divisions or semantic structural elements (header, footer, etc.)
+                So that they can be easily rearranged if we decide to give users a different experience.
+            div along with HTML5 semantic tags are used to divide a page into boxes.
+
+            *** Box Model size (without Box-sizing) ***
+                actual visible/rendered width of an element's box = width + padding + border
+                actual visible/rendered height of an element's box = height + padding + border
+
+            *** Box-sizing ***
+                CSS box-sizing property allows us to include the padding and border in an element's total width and height.
+                The box-sizing property can make CSS layouts more intuitive.
+                The box-sizing property has a common value called border-box.
+                Every current browser supports box-sizing: border-box;
+
+            To make sure all boxes are treated as border-box, add the following property to the universal selector
+                * {
+	                    box-sizing: border-box
+                }
+        -->
+        <style>
+
+            * {
+                box-sizing: border-box;
+            }
+            
+            body {
+                background-color: gray;
+                margin: 0;
+                padding: 0;
+            }
+
+            #box {
+                background-color: blue; /* padding + content color, unless explicitly changed*/
+                padding: 10px 10px 10px 10px;
+                border: 20px solid black;
+                margin: 40px;
+                width: 300px;/* actual width of rendered box (content + padding + border; using box-sizing: border-box) */
+                height: 300px;/* actual height of rendered box (content + padding + border; using box-sizing: border-box) */
+                /*box-sizing: border-box;*/
+            }
+
+            #content {
+                background-color: green;
+            }
+
+            #content2 {
+                background-color: hotpink;
+            }
+
+            h1 {
+                margin-bottom: 30px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>CSS - Box Model</h1>
+        <div>
+            <img src="images/cssBoxModel.png" width="700">
+        </div>
+        <div>
+            <img src="images/cssBoxModel2.png" width="700">
+        </div>
+        
+        <div id="box">
+            <div id="content">
+                 Content 1
+            </div>
+            <div id="content2">
+                Content 2
+            </div>
+        </div>
+
+
+    </body>
+</html>  
