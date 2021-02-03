@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>CSS Selectors</title>
+        <!--
+            Types of CSS selectors
+
+Element selector: applied to all elements of certain type
+	p {
+		text-align: center;
+		color: red;
+	}
+
+	input[type=“text”] {
+		text-align: center; 
+		color: blue;
+    }
+    
+Id selectors
+
+    The css rule below is applied to the element with id=“id1”
+        #id1 {
+	        text-align: center;
+	        color: red;
+        }
+
+class selectors: CSS rule is applied to all elements with a certain class value.
+    class attribute defines a class for HTML elements:
+        <p class='class1'>hello</p>
+
+    An element might have multiple classes:
+        <p class='class1 class2'>hello</p>
+
+In this example all HTML elements with class='class1' will be red and center-aligned:
+
+    .class1 {
+	    text-align: center;  
+	    color: red;
+    }
+universal selector: applied to all elements
+    * {
+	    text-align: center;
+	    color: red;
+    }
+
+Combining selectors
+Selectors can be grouped together
+    h1, h2, p, .blue, #id1 {
+	    text-align: center;
+	    color: red;
+    }
+
+You can combine element selector with class selector (for example)
+    This css rule is applied to all <p> tags that have class=“class1”
+        p.class1 {
+	        text-align: center;
+	        color: red;
+        }
+
+    This css rule is applied to all tags that have both class1 and class2:
+	    .class1.class2 {
+		    text-align: center;
+		    color: red;
+	    }
+
+Descendent selector
+
+    This CSS rule is applied to all <p> tags that are inside <article> tags (right to left)
+        article p {
+	        text-align: center; 
+	        color: red;
+        }
+
+Child selectors is the same as descendent, but it is only applied to direct children.
+
+    For example, here the style is applied only to <p> elements that are directly a child of <article> element.
+        article > p {
+	        text-align: center;
+	        color: red;
+        }
+
+
+        -->
+        <style>
+            /* all h2 elements */
+            h2 {
+                color: seagreen;
+                text-align: center;
+            }
+
+            /* all element with class="highlight"  */
+            .highlight {
+                font-size: 20px;
+                font-weight: bold;
+                font-style: italic;
+                background-color: purple;
+                color: black;
+                opacity: .6;
+            }
+
+            .highlight2 {
+                color: red;
+            }
+
+            .highlight3 {
+                font-size: 30px;
+            }
+
+            .highlight.highlight3 {
+                background-color: black;
+                color: white;
+
+            }
+
+            span.highlight {
+                color: aqua;
+            }
+
+            /* element with id="mainPoint" */
+            #mainPoint {
+                font-size: 24px;
+                font-weight: bold;
+                background-color: tomato;
+                opacity: .7;
+            }
+
+            /* all p AND h1 elements */
+            p, h1 {
+                color: violet;
+                text-align: center;
+            }
+
+            /* all span within p */
+            p span {
+                color: turquoise
+            }
+
+            /* all span that is direct child of p */
+            p > span {
+                color: brown;
+
+            }
+
+            /* univeral selector */
+            * {
+                text-align: center;
+                background-color: tan;
+            }
+
+
+
+        </style>
+    </head>
+    <body>
+        <h1>h1 selector</h1>
+        <h2>h2 selector</h2>
+        <!--highlight2 style will override any same highlight style. highlight style still applies anything thats not in highlight2 -->
+        <p class="highlight highlight2">paragraph with class="highlight highlight2"</p>
+        <p class="highlight">paragraph with class="highlight"</p>
+        <p class="highlight highlight3">paragraph with class="highlight highlight3"</p>
+        <h2>h2 selector</h2>
+        <p>another p element</p>
+        <div>
+            A div
+            {<span id="mainPoint">A span inside a div with id="mainPoint"</span>}
+        </div>
+        <p><span>A span inside a p element (span is direct child of p)<span>A span within a span within a p</span></p>
+        
+        <span class="highlight">A span with class="highlight"(direct child of body)</span>
+ 
+
+    </body>
+</html>

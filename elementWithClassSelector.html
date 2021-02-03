@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CSS - Element with Class Selector</title>
+    <style>
+      /* all with class="highlight" */
+      .highlight {
+        background-color: green;
+      }
+      /* all p elements with class="highlight" */
+      p.highlight {
+        font-style: italic;
+      }
+
+      /* all elements with class="highlight" as well as with class="mainpoint"*/
+      .mainpoint.highlight {
+        color: red;
+        background-color: black;
+      }
+
+      /* all span elements inside p */
+      p span {
+        color: cadetblue;
+      }
+
+      /* all p elements that are direct child of article */
+      article > p {
+        color: purple;
+      }
+
+
+    </style>
+  </head>
+  
+  <body>
+    <h1 class="highlight">h1 element with class selector (class="highlight")</h1>
+    <p>p element</p>
+    <p class="highlight">p element with class="highlight"</p>
+    <div class="mainpoint highlight">
+      div element (class="mainpoint highlight") . This is the main point of the entire article
+    </div>
+    <p><span>span element inside a p element</span></p>
+
+    <article>
+      <p>p element inside article (direct child)</p>
+      <div>
+        div element inside article (direct child)
+      </div>
+    </article>
+
+  </body>
+</html>
