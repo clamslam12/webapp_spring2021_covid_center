@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA Compatible" content="IE-edge" />
+    <!--
+            For mobile devices, you need to use viewport meta tag to turn off default mobile zooming
+            The width=device-width part sets the width of the page to follow the screen-width of the device (which will vary depending on the device).
+
+            The initial-scale=1 part sets the initial zoom level when the page is first loaded by the browser.
+
+        -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CSS - Bootstrap 2 (Using CDN)</title>
+    <!--
+        Always link CSS files at the bottom of header and JS files at the bottom of body (to render styles first)
+    -->
+    <!--
+            Boostrap CSS CDN link
+        -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!--
+            link to external CSS files
+        -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!--
+        Bootstrap requires a containing element to wrap site contents.
+        
+        The .container class provides a responsive fixed width container
+        The .container-fluid class provides a full width container, spanning the entire width of the viewport
+
+*******************************************************************************************           
+              Syntax is col-SIZE-SPAN. SIZE represents the responsiveness: sm, md, lg or xl, while SPAN represents a number between 1-12, which should add up to 12 for each row.
+
+              Since we don't have col-lg, col-md-4 will be the default for media 
+              sizes with min-width larger then col-md's min-width. Bootstrap will use the largest class size declared as a default for
+              media sizes larger then the largest declared size.
+*******************************************************************************************
+              /* Extra small devices (phones, 600px and down) */
+            @media only screen and (max-width: 575px) {...}
+
+            /* Small devices (portrait tablets and large phones, 600px and up) */
+            @media only screen and (min-width: 576px) {...}
+
+            /* Medium devices (landscape tablets, 768px and up) */
+            @media only screen and (min-width: 768px) {...}
+
+            /* Large devices (laptops/desktops, 992px and up) */
+            @media only screen and (min-width: 992px) {...}
+
+            /* Extra large devices (large laptops and desktops, 1200px and up) */
+            @media only screen and (min-width: 1200px) {...}
+*******************************************************************************************
+*******************************************************************************************
+            The Bootstrap 4 grid system has five classes:
+
+            .col- (extra small devices - screen width less than 576px)
+            .col-sm- (small devices - screen width equal to or greater than 576px)
+            .col-md- (medium devices - screen width equal to or greater than 768px)
+            .col-lg- (large devices - screen width equal to or greater than 992px)
+            .col-xl- (xlarge devices - screen width equal to or greater than 1200px)
+*******************************************************************************************
+*******************************************************************************************
+          -->
+    <!--
+              if media size is small (min-width: 576px), then each article in the row will span 6 columns (col-sm-6)
+              if media size is medium (min-width: 768px), then each article in the row will span 4 columns (col-md-4)
+              if media size is extra small (max-width: 575px), then each article in the row will span 12 columns (col-12)
+          -->
+    <!--
+*******************************************************************************************
+              Bootstrap includes many nice CSS classes and HTML components for making elegant pages.
+
+                <button type="button" class="btn">Basic</button>
+                <button type="button" class="btn btn-primary">Primary</button>
+                <button type="button" class="btn btn-secondary">Secondary</button>
+                <button type="button" class="btn btn-success">Success</button>
+                <button type="button" class="btn btn-info">Info</button>
+                <button type="button" class="btn btn-warning">Warning</button>
+                <button type="button" class="btn btn-danger">Danger</button>
+                <button type="button" class="btn btn-dark">Dark</button>
+                <button type="button" class="btn btn-light">Light</button>
+                <button type="button" class="btn btn-link">Link</button>
+
+                Alerts: Alerts are created with the .alert class, followed by one of the contextual classes:
+                .alert-success, .alert-info, .alert-warning, .alert-danger, .alert-primary, .alert-secondary, .alert-light or .alert-dark
+*******************************************************************************************                
+          -->
+    <div class="container">
+      <!--
+        Modals: The Modal component is a dialog box/popup window that is displayed on top of the current page.
+
+        Bootstrap Forms: Bootstrap provides two types of form layouts
+          stacked form
+          Inline form
+
+        Stacked form
+            Add a wrapper element with .form-group, around each form control, to ensure proper margins
+      -->
+
+      <h1>Bootstrap CSS classes/HTML elements</h1>
+      <h4>Modal Example</h4>
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#myModal"
+      >
+        Open modal
+      </button>
+      <!--
+        The Modal
+      -->
+      <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!--
+              Modal header
+            -->
+            <div class="modal-header">
+              <h4 class="modal-title">Are you sure you want to leave?</h4>
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">Modal body..</div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h4>Buttons</h4>
+      <button type="button" class="btn btn-primary">Primary button</button>
+      <button type="button" class="btn btn-warning">Warning button</button>
+      <h4>Alerts</h4>
+      <div class="alert alert-success">
+        <strong>Success!</strong> Indicates a successful or positive action
+      </div>
+      <div class="alert alert-warning">
+        <strong>Warning!</strong> Indicates a warning action
+      </div>
+      <!--
+        You can also make animated alerts using .fade and .show classes.
+      -->
+      <h4>Animated alerts</h4>
+      <div class="alert alert-success alert-dismissible fade show">
+        <button type="button" class="close" data-dismiss="alert">
+          &times;
+        </button>
+        <strong>Success!</strong> This alert box could indicate a successful or
+        positive action.
+      </div>
+    </div>
+
+    <!--
+      Put scripts in this order jQuery, Popper, Bootstrap
+    -->
+    <!--
+          jQuery (Bootstrap JS plugin depends on it)
+      -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <!--
+          Bootstrap JS CDN link
+      -->
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <!--
+              link to external JS files
+          -->
+    <script src="js/script.js"></script>
+  </body>
+</html>

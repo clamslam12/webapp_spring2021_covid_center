@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>CSS - Box Model</title>
-        <!--
+  <head>
+    <meta charset="utf-8" />
+    <title>CSS - Box Model</title>
+    <!--
             ***** Box model: consider a webpage as a set of boxes. *****
 
             Principle: When designing, elements/objects should be placed in divisions or semantic structural elements (header, footer, etc.)
@@ -25,60 +25,55 @@
 	                    box-sizing: border-box
                 }
         -->
-        <style>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
 
-            * {
-                box-sizing: border-box;
-            }
+      body {
+        background-color: gray;
+        margin: 0;
+        padding: 0;
+      }
 
-            body {
-                background-color: gray;
-                margin: 0;
-                padding: 0;
-            }
+      #box {
+        background-color: blue;
+        /* padding + content color, unless explicitly changed*/
+        padding: 10px 10px 10px 10px;
+        border: 20px solid black;
+        margin: 40px;
+        /* actual width of rendered box (content + padding + border; using box-sizing: border-box) */
+        width: 300px;
+        /* actual height of rendered box (content + padding + border; using box-sizing: border-box) */
+        height: 300px;
+      }
 
-            #box {
-                background-color: blue; /* padding + content color, unless explicitly changed*/
-                padding: 10px 10px 10px 10px;
-                border: 20px solid black;
-                margin: 40px;
-                width: 300px;/* actual width of rendered box (content + padding + border; using box-sizing: border-box) */
-                height: 300px;/* actual height of rendered box (content + padding + border; using box-sizing: border-box) */
-                /*box-sizing: border-box;*/
-            }
+      #content {
+        background-color: green;
+      }
 
-            #content {
-                background-color: green;
-            }
+      #content2 {
+        background-color: hotpink;
+      }
 
-            #content2 {
-                background-color: hotpink;
-            }
+      h1 {
+        margin-bottom: 30px;
+      }
+    </style>
+  </head>
 
-            h1 {
-                margin-bottom: 30px;
-            }
+  <body>
+    <h1>CSS - Box Model</h1>
+    <div>
+      <img src="images/cssBoxModel.png" width="700" />
+    </div>
+    <div>
+      <img src="images/cssBoxModel2.png" width="700" />
+    </div>
 
-        </style>
-    </head>
-    <body>
-        <h1>CSS - Box Model</h1>
-        <div>
-            <img src="images/cssBoxModel.png" width="700">
-        </div>
-        <div>
-            <img src="images/cssBoxModel2.png" width="700">
-        </div>
-        
-        <div id="box">
-            <div id="content">
-                 Content 1
-            </div>
-            <div id="content2">
-                Content 2
-            </div>
-        </div>
-
-
-    </body>
-</html>  
+    <div id="box">
+      <div id="content">Content 1</div>
+      <div id="content2">Content 2</div>
+    </div>
+  </body>
+</html>

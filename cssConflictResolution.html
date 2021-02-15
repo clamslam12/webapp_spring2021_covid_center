@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>CSS - Conflict Resolution</title>
-    </head>
-    <!--
+  <head>
+    <meta charset="utf-8" />
+    <title>CSS - Conflict Resolution</title>
+  </head>
+  <!--
         Conflict happens when different CSS rules assign different values to the same property
 
     ***** Specifity rule: More specific CSS rules win! *****
@@ -21,47 +21,49 @@
 
     -->
 
-    <style>
-        /* class selector */
-        .blurb {
-            color: red;
-        }
+  <style>
+    /* class selector */
+    .blurb {
+      color: red;
+    }
 
-        .blurb2 {
-            color: purple;
-        }
+    .blurb2 {
+      color: purple;
+    }
 
-        .blurb3 {
-            font-size: 30px;
-        }
+    .blurb3 {
+      font-size: 30px;
+    }
 
-        /* type selector */
-        p {
-            color: green;
-        }
+    /* type selector */
+    p {
+      color: green;
+    }
 
-        /* id selector */
-        #mainPoint {
-            color: blue;
-        }
+    /* id selector */
+    #mainPoint {
+      color: blue;
+    }
+  </style>
 
-        
-
-    </style>
-    <body>
-        <!--
+  <body>
+    <!--
             Specificity rule; 
         -->
-        <p class="blurb" id="mainPoint">p element with class="blurb" id="mainPoint"</p>
-        <p class="blurb" id="mainPoint" style="color: chocolate;">p element with class="blurb" id="mainPoint" with inline style="color: chocolate"</p>
-        <!--
+    <p class="blurb" id="mainPoint">
+      p element with class="blurb" id="mainPoint"
+    </p>
+    <p class="blurb" id="mainPoint" style="color: chocolate">
+      p element with class="blurb" id="mainPoint" with inline style="color:
+      chocolate"
+    </p>
+    <!--
             .blurb2 wins because it is the last class definition in styles rendered by the browser
         -->
-        <p class="blurb2 blurb">p element with class="blurb2 blurb"</p>
-        <!--
+    <p class="blurb2 blurb">p element with class="blurb2 blurb"</p>
+    <!--
             example of declarations merge. p element have different CSS rules that define different properties, so all properties apply to it.
         -->
-        <p class="blurb3">p element with class="blurb3"</p>
-
-    </body>
+    <p class="blurb3">p element with class="blurb3"</p>
+  </body>
 </html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Floating ELements</title>
+  </head>
+  <style>
+    div {
+      background-color: turquoise;
+    }
+    p {
+      width: 50px;
+      height: 50px;
+      border: 1px solid black;
+      box-sizing: border-box;
+      float: left;
+      clear: right;
+      width: 50%;
+    }
+    #p1 {
+      background-color: green;
+      height: 100px;
+      /*To center an element, other than text, use the margin attributes.*/
+      /*margin-left: auto;
+      margin-right: auto;*/
+      /*Float can be used for building very flexible layouts that are response to screen size.*/
+      float: left;
+      /*float: left;
+      clear: right;*/
+      width: 50%;
+    }
+    #p2 {
+      background-color: blue;
+      height: 100px;
+      /*float: right;*/
+      float: left;
+      /*clear: both;*/
+      width: 50%;
+    }
+    #p3 {
+      background-color: maroon;
+      height: 100px;
+      float: left;
+      /*float: left;*/
+      /*Use clear to ensure that nothing else appears to the left/right of an element.*/
+      /*clear: right; /*nothing should be on the right*/
+      /*clear: both;*/
+    }
+    #p4 {
+      height: 100px;
+      background-color: orange;
+      float: left;
+      /*clear: both;*/
+    }
+    section {
+    }
+  </style>
+  <body>
+    <h1>FLoating Elements</h1>
+
+    <div>
+      <p id="p1">box #1</p>
+      <p id="p2">box #2</p>
+      <p id="p3">box #3</p>
+      <p id="p4">box #4</p>
+      <section>
+        This is regular content continuing after the paragraph boxes
+      </section>
+    </div>
+  </body>
+</html>
