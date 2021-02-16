@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JS - Fundamentals</title>
+    </head>
+    <body>
+        <h1>Javscript Fundamentals</h1>
+        <!--
+Data Types
+
+ JavaScript types are dynamic and weakly-typed
+
+    Dynamic: same variable can be used to hold different data types
+    Weak: Certain types are implicitly cast depending on the operation used
+
+var x = 5;           // Now x is a Number
+x = "John";      // Now x is a String (dynamically typed)
+x = "9" + 9;     // Now x is a String with value 99; implicit cast (weakly typed)          
+
+Numbers (integer, floating-point)
+
+Boolean (true / false)
+
+String type – string of characters
+var myName = "You can use both single or double quotes for strings";
+
+Arrays
+var my_array = [1, 5.3, "aaa"];
+
+Associative arrays (hash tables)
+var my_hash = {a:2, b:3, c:"text"};
+
+***************************************************************************
+ Every variable in JS is an object (in OOP terms)
+
+ For example strings and arrays have member functions.
+
+Note: the term 'object' here should not be confused with JavaScript Object literals data type.
+
+var test = "some string";
+alert(test[7]); // shows letter 'r'
+alert(test.charAt(5)); // shows letter 's'
+alert("test".charAt(1)); //shows letter 'e'
+alert("test".substring(1,3)); //shows 'es'
+
+var arr = [1,3,4];
+alert (arr.length); // shows 3
+arr.push(7); // appends 7 to end of array
+alert (arr[3]); // shows 7
+
+***************************************************************************
+String Operations
+
+Operator + joins strings
+string1 = "hello ";
+string2 = "world";
+console.log(string1 + string2);  // hello world
+
+What is "9" + 9?
+console.log("9" + 9);  // 99
+
+Converting string to number
+console.log(parseInt("9") + 9);  // 18
+
+***************************************************************************
+Arrays operations and properties
+
+Declaring new empty array
+var arr = new Array();
+
+Declaring an array holding few elements:
+var arr = [1, 2, 3, 4, 5];
+
+Appending an element / getting the last element:
+arr.push(3);
+var element = arr.pop(); // 5
+
+Reading the number of elements (array length):
+arr.length; // 5
+
+Finding element's index in the array
+arr.indexOf(1); // 0
+
+Arrays can have elements of different types.
+var arr = new Array();
+arr[0] = 1;
+arr[1] = {name: 'john'};
+arr[2] = function(name){
+   console.log(name);
+}
+arr[2]('john'); // prints to console 'john'
+
+Looping through an array:
+for(var i = 0; i < arr.length; i++){
+    console.log(arr[i]);
+}
+***************************************************************************
+JavaScript Object literals (data type)
+
+var x = {
+    firstName:"John", 
+    lastName:"Doe", 
+    address: {
+        street:"John's address",
+        city: "Denver"
+    }
+};
+
+Another way to define the same object
+var x = new Object();
+x.firstName = "John";
+x.lastName = "Doe";
+x.address = new Object();
+x.address.street = "John's address";
+x.address.city = "Denver";
+
+How to iterate through name/value pairs of an object literal
+for(var prop in x){
+    console.log(x[prop]); 
+}
+// John
+// Doe
+// {street: "John's address", city: "Denver"}
+
+***************************************************************************
+typeof Operator
+
+The typeof operator can return one of two complex types:
+
+function
+object
+
+The typeof operator returns "object" for objects, arrays, and null.
+The typeof operator returns "function" for functions.
+
+console.log(typeof [1,2,3,4]); //Prints "object"
+console.log(typeof function myFunc(){}); //Prints "function"
+
+***************************************************************************
+undefined
+
+Undefined means a variable has been declared, but the value of that variable has not yet been defined.
+
+var car;    
+console.log(car); //The value is undefined;
+console.log(typeof car); //The type is also undefined
+
+Any variable can be emptied, by setting the value to undefined.
+car = undefined;    // Value is undefined, type is undefined
+
+An empty value is different from undefined
+var car = "";    // The value is ""; not undefined
+
+***************************************************************************
+null
+
+Null means an empty or non-existent value.
+
+Null is assigned, and explicitly means nothing.
+
+var test1 = null; // The value is null; 
+console.log(typeof test1); // type of is object
+
+***************************************************************************
+Conditional Statement (if)
+
+unitPrice = 1.30;
+if (quantity == 100) { 
+  unitPrice = 1.20;
+}
+
+===: tests for strict equality // both data types should match
+
+==: tests for loose equality. // performs type coercion then compares
+
+performs type coercion: values are converted to a common data type before comparing them.
+
+***************************************************************************
+Switch Statement
+
+switch (variable) {
+  case 1: 
+    // do something
+    break;
+  case 'a':
+    // do something else
+    break;
+  case 3.14:
+    // another code
+    break;
+  default:
+    // something completely different
+}
+
+***************************************************************************
+Loops
+
+Like C languages
+for
+while
+do...while
+
+var counter;
+for (counter=0; counter<4; counter++) {
+  alert(counter);
+}
+while (counter < 5) {
+  alert(++counter);
+}
+
+***************************************************************************
+Functions
+
+A function is a block of code designed to perform a particular task.
+
+A function is executed when "something" invokes it (calls it).
+
+function multiply(p1, p2) {
+  return p1 * p2;   // The function returns the product of p1 and p2
+}
+
+When JavaScript reaches a return statement, the function will stop executing.
+
+***************************************************************************
+Function expressions
+
+A function can also be defined using an expression.
+A function expression can be stored in a variable.
+
+var average = function (a, b, c)
+{
+    var total;
+    total = a+b+c;
+    return total/3;
+}
+
+average is the name of the function not the result
+
+var x = average(1, 2, 3);
+console.log(x); //prints 2
+
+***************************************************************************
+Functions are objects (in OOP terms)
+
+So a function can have attributes and methods like a normal object.
+
+var average = function (a, b, c)
+{
+    var total;
+    total = a+b+c;
+    return total/3;
+}
+console.log(average.toString()); 
+
+You can add a property or even a method to any object
+average.version = "v1.0"; // a function with  it's own member variable
+average.x = function(){ // a function with its's own member function
+    return 10;
+}
+console.log(average.x()); //prints 10;
+
+***************************************************************************
+Once you consider functions as objects, fun weird things will start to happen…
+
+// a function that takes input(s), use it as an input(s) to the inner function, 
+// then returns the inner function. 
+
+var makeDivisor = function (divisor){
+    var newfunc = function (x) {
+	return x / divisor; 
+    } 
+    return newfunc;
+}
+
+// initializing variable using outer function and taking input(s) and store it as input(s) to the inner function
+var divideBy2 = makeDivisor(2); // divisor = 2
+
+// invoking inner function using stored input from outer function, divisor = 2, and current input, x = 10
+console.log(divideBy2(10)); //prints 5
+
+var divideBy4 = makeDivisor(4);
+// divideBy4 = function(x){return x / 4};
+console.log(divideBy4(20)); //prints 5
+
+function doDivisionOn(x, operator) {
+      return operator(x);
+}
+console.log(doDivisionOn(100, divideBy4)); //prints 25
+
+
+
+
+
+
+
+
+
+-->
+
+    </body>
+</html>
