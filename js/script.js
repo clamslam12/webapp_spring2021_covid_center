@@ -26,13 +26,12 @@ function findUnique(str) {
 
 //function called doOperation which receives two numbers and a function as input, calls the received (input) function with the two numbers, and returns the result.
 //Write two different operator functions (multiply, power) and make sure it works correctly with both operators.
+function doOperation(x, y, operator) {
+  return operator(x, y);
+}
 function multiply(x, y) {
   return x * y;
 }
 function power(x, y) {
   return Math.pow(x, y);
-}
-
-function doOperation(x, y, operator) {
-  return operator(x, y);
 }
