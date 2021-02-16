@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>JS - embedded vs external link</title>
+  </head>
+  <body>
+    <!--
+*******************************************************************************      
+      The JavaScript code can be placed in:
+        <script> tag in the head
+        <script> tag in the end of body
+        Usually the common practice since in this way HTML document will be rendered before JS codes are run by the browser.
+*******************************************************************************
+      JavaScript code is executed during the page loading or when the browser fires an event
+
+        All statements are executed at page loading
+        Some statements just define functions that can be called later
+      Function calls or code can be attached as "event handlers" via tag attributes
+
+      Executed when the event is fired by the browser
+*******************************************************************************
+      JavaScript codes are executed sequentially in the order encountered on the page.
+
+      Functions are not executed until invoked.
+
+      Assume the link to script1.js is placed in an HTML document before script2.js. Now, if script1.js defines a function myFunc, and scripts2.js defines a function with the same name, 
+      then a call to myFunc executes the definition by scripts2.js.
+    -->
+    <!--
+            embedded JS 
+        -->
+    <script type="text/javascript">
+      let greet = "hello world";
+      document.write("<h2>currently in embedded JS</h2>");
+      console.log(greet);
+      document.write(greet);
+      let num = 10;
+    </script>
+    <br />
+    <!--Event listener onclick-->
+    <button onclick="test('hi there')">invoking external js function</button>
+    <button onclick="alert('using inline js');">Inline js</button>
+
+    <!--
+            external JS link
+        -->
+    <script src="/js/script.js" type="text/javascript"></script>
+  </body>
+</html>
