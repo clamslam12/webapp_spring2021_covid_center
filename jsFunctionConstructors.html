@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>JS - Function Constructors</title>
+  </head>
+  <body>
+    <h1>Function Constructors</h1>
+    <script>
+      //defining function constructor/object type constructor (same as class constructor)
+      function Rectangle(width, height) {
+        this.width = width;
+        this.height = height;
+        this.getArea = function () {
+          return this.width * this.height;
+        };
+      }
+      //instantiating Rectangle (create an object of of type Rectangle)
+      var rect = new Rectangle(5, 10); //initialize variables for rect object of type Rectangle
+      console.log("area of rec(5,10): " + rect.getArea()); //prints 50
+
+      //defining new method for rect object, NOT Rectangle object type
+      //ONLY rect object can access this method
+      //NO other objects of Rectangle can access or invoke this method
+      rect.getDiameter = function () {
+        console.log("inside object method");
+        return (this.width + this.height) * 3;
+      };
+      console.log("diameter of rect(5,10): " + rect.getDiameter()); //prints 45
+
+      //instantiating another object of type Rectangle
+      var rect2 = new Rectangle(2, 4);
+      //console.log(rect2.getDiameter()); //throws error because getDiameter belongs only to rect
+
+      //adding a new method to Rectangle function constructor
+      Rectangle.prototype.getDiameter = function () {
+        console.log("inside object type constructor");
+        return this.width + this.height;
+      };
+
+      console.log("diameter of rect2(2,4): " + rect2.getDiameter()); //no error now; prints 6
+
+      //rect have two methods with same name, one from Rectangle object type and one from its own object
+      //the method in Rectangle object type will NOT override the method in rect object
+      //Precedence: object > object type
+      console.log("diameter of rect(5,10): " + rect.getDiameter()); //invoking getDiameter() from rect; prints 45
+    </script>
+  </body>
+</html>
