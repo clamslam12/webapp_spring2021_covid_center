@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Document Object Model</title>
+  </head>
+  <body>
+    <h1>Document Object Model</h1>
+    <div>
+      <img src="/images/dom_example.jpg" alt="" />
+    </div>
+    <!--
+
+Document Object Model (DOM) is a cross-platform and language-independent interface that treats an HTML document as a tree structure 
+wherein each node is an object representing a part of the document.
+
+DOM represents a document with a logical tree. Each branch of the tree ends in a node, and each node contains objects.
+
+DOM methods allow programmatic access to the tree; with them one can change the structure, style or content of a document.
+
+Nodes can have event handlers attached to them. Once an event is triggered, the event handlers get executed.
+
+***************************************************************************
+Accessing Elements
+
+Access elements via their ID attribute (returns one element or null)
+var elem = document.getElementById("some_id")
+
+Access elements via the name attribute (note that it returns an array of elements)
+var arr = document.getElementsByName("some_name")
+
+Access elements via tag name
+var imgTags = document.getElementsByTagName("img")
+
+***************************************************************************
+QuerySelector: Another way to access DOM elements
+
+Access elements using id
+var elem = document.querySelector("#demo").
+
+Access all p elements:
+var arr = document.querySelector("p")
+
+Access all elements with a specific class:
+var arr = document.querySelector(".example");
+
+***************************************************************************
+Accessing Element Properties
+
+Element properties are mostly derived from HTML attributes of that element
+id, name, href, title, src
+document.getElementbyId("img1").src = "image.jpg"
+
+Some properties are common to all elements, while some properties are specific to certain elements.
+id, style, className are important examples of common properties.
+href, src are specific to certain elements.
+
+***************************************************************************
+Important Common Properties
+
+className – the class attribute of the tag
+
+value – sets/gets the value of an element.
+
+innerHTML – gets/sets all the entire HTML code inside the element
+
+textContent – gets/sets the text content of the specified node, and all its descendants.
+
+style - change the styling properties of the element.
+style.width, style.marginTop, style.backgroundImage
+
+Read-only properties with information for the current element and its state
+tagName, offsetWidth, nodeType
+
+***************************************************************************
+HTML DOM Event Model
+
+JavaScript can register event handlers
+Events are fired by Browser annd sent to the specified JavaScript event handler function
+Can be set with HTML attributes:
+
+Three ways to register event handleres:
+----------------------
+Method 1: using element attribtes (called inline events):
+<img src="test.gif" onclick="imageClicked()" />
+---------------------
+Method 2: using DOM methods to assign event handler functions to event properties:
+
+var img = document.getElementById("myImage");
+img.onclick = function(){
+  ...
+};
+
+All event handlers receive one parameter called event
+
+It brings information about the event:
+    it contains the type of the event (mouse click, key press, etc.)
+    It includes data about the location where the event has been fired (e.g. mouse coordinates)
+It Holds a reference to the event sender
+    For example, the button that was clicked
+
+lampImg.onmouseout = function(event){
+  change('off');
+  console.log(event.target.id); //prints "lamp"
+}
+----------------------
+Method 3: Unobtrusive event binding
+using element.addEventListener method to register event handleres:
+function doIt(event){
+    this.title = “hello world!”;
+    
+}
+document.getElementbyId(“id”).addEventListener(“click”, doIt);
+
+Difference between method 2 and 3: 
+with method 2, only one event handler (the last one) could be registered to an event. 
+But with method 3 (unobtrusive), multiple event handlers could be registered and they all will be executed when the event is fired.
+
+
+
+
+
+
+        -->
+  </body>
+</html>
