@@ -8,6 +8,9 @@
     <h1>Document Object Model</h1>
     <div>
       <img src="/images/dom_example.jpg" alt="" />
+      <div style="margin-top: 50px;">
+        <img src="/images/dom_hierarchy.jpg" alt="">
+      </div>
     </div>
     <!--
 
@@ -116,6 +119,126 @@ Difference between method 2 and 3:
 with method 2, only one event handler (the last one) could be registered to an event. 
 But with method 3 (unobtrusive), multiple event handlers could be registered and they all will be executed when the event is fired.
 
+***************************************************************************
+Common DOM Events
+
+Mouse events:
+onclick, onmousedown, onmouseup, onmouseover, onmouseout, onmousemove
+
+Key events (Only for input fields):
+onkeypress, onkeydown, onkeyup
+
+Interface events:
+onblur, onfocus
+onscroll
+
+Form events
+onchange – for input fields
+onsubmit - fired on submission of a form (when submit button is pressed)
+It can cancel submission of a form if form input values fail validation.
+
+Miscellaneous events
+onload, onunload
+Allowed only for the <body> element.
+Fires when all content on the page has been loaded/unloaded.
+
+<body onload="greet()">
+...
+</body>
+
+***************************************************************************
+The Built-In Browser Objects
+
+The browser provides some read-only data via:
+
+window
+The top node of the DOM tree
+Represents the browser's window
+
+document
+holds information the current loaded document
+
+screen
+Holds the user's display properties
+
+browser
+Holds information about the browser
+
+***************************************************************************
+window object
+
+represents an open window in a browser.
+
+var newWindow = window.open("", "sampleWindow",
+  "width=300, height=100, menubar=yes,
+  status=yes, resizable=yes");
+
+newWindow.document.write(
+  "<html><head><title>
+  Sample Title</title>
+  </head><body><h1>Sample
+  Text</h1></body>");
+newWindow.status = 
+  "Hello folks";
+
+***************************************************************************
+window object (cont.)
+
+self refers to current window/frame.
+parent refers to the parent window/frame of current frame
+top refers to the outermost frame
+
+console.log(window.parent.location)
+
+***************************************************************************
+navigator object
+
+contains information about the browser.
+
+console.log(window.navigator.userAgent);
+
+***************************************************************************
+document object
+
+Provides arrays of objects on the currently loaded Web page.
+
+document.links[0].href = "https://www.google.com/";
+document.write("This is some <b>bold text</b>");
+
+document.location is used to access the currently open URL or redirect the browser
+document.location.href = "https://www.google.com/";
+
+***************************************************************************
+Accessing Cookies
+
+Remember that HTTP is stateless: when a web server has sent a response to a browser request, the connection is shut down, and the server forgets everything about the request.
+
+Cookies were invented to solve the problem "how to remember information about the user":
+
+Cookies are files containing key-value pairs, that are sent along with HTTP response to the browser to be stored.
+
+When a browser requests a web page from a server, cookies belonging to the page are added to the request. This way the server gets the necessary data to "remember" information about users.
+
+***************************************************************************
+Accessing cookies (cont.)
+
+console.log(document.cookie)
+
+You can also set the cookie; for example, you can add an expiry date (in UTC time). By default, the cookie is deleted when the browser is closed:
+- document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC";
+
+***************************************************************************
+history object
+
+Contains the URLs visited by the user
+
+<button onclick="goBack()">Go Back</button>
+
+<script>
+function goBack() {
+  window.history.back(); //or window.history.go(-1);
+}
+</script>
 
 
 
