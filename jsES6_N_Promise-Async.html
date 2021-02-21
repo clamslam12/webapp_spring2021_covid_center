@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS - ES6</title>
+  </head>
+  <body>
+      <h1>Promise in JavaScript</h1>
+      <h3>3 States: Pending, Fulfilled, Rejected</h3>
+    <!--
+        ECMAScript 6, also known as ES6 and ECMAScript 2015, was the second major revision to JavaScript.
+
+The let and const keywords (introduced before)
+Arrow functions
+Promise object and extensions for asynchronous programming
+Template literals
+Array.find and Array.findindex (self-study)
+Classes (self-study)
+
+*********************************************************************************
+Arrow functions
+
+Recall function expressions.
+In ES6, arrow functions allow a short syntax for writing function expressions.
+
+// ES5
+var multiplyFunc = function(x, y) {
+   return x * y;
+}
+
+// ES6
+const multiplyFunc = (x, y) => x * y;
+You don't need the function keyword, and if the function is a single statement you can omit the return keyword, 
+and the curly brackets.
+
+*********************************************************************************
+Arrow Functions (cont.)
+
+Arrow functions do not have their own this. They are not well suited for defining object methods.
+
+Using const is safer than using var, because a function expression is always a constant value.
+
+You can only omit the return keyword and the curly brackets if the function is a single statement.
+
+Because of this, it might be a good habit to always keep them:
+
+const multiplyFunc = (x, y) => { return x * y };
+
+*********************************************************************************
+Asynchronous JavaScript
+
+Before ES6, callbacks were used to handle asynchronous operations.
+
+A callback is a function passed as an argument to another function.
+
+For example, when using the JavaScript function setTimeout(), you can specify a callback function to be executed on time-out:
+
+setTimeout(greet, 3000);
+
+function greet() {
+  document.getElementById("mainDiv").innerHTML = "Hello world!";
+}
+greet is used as a callback.
+
+*********************************************************************************
+Promise Object
+
+A Promise object contains both the producing code and calls to the consuming code.
+
+let myPromise = new Promise(function(myResolve, myReject) {
+// "Producing Code" (May take some time)
+
+  myResolve(); // when successful
+  myReject();  // when error
+});
+
+// "Consuming Code" (Must wait for a fulfilled Promise)
+myPromise.then(
+  function(value) { /* code if successful */ },
+  function(error) { /* code if some error */ }
+);
+
+*********************************************************************************
+Using promise instead of callback
+
+let myPromise = new Promise(function(myResolve, myReject) {
+  setTimeout(function() { myResolve("Hello world!"); }, 3000);
+});
+
+myPromise.then(function(value) {
+  document.getElementById("mainDiv").innerHTML = value;
+});
+
+*********************************************************************************
+Promise Object (cont.)
+
+When the executing code obtains the result, it should call one of the two callbacks
+
+Success:	myResolve(result value)
+
+Error:	myReject(error object)
+
+Promise.then() takes two arguments, a callback for success and another for failure.
+
+Both are optional, so you can add a callback for success or failure only.
+
+*********************************************************************************
+JavaScript Async
+
+The keyword async before a function makes the function return a promise
+
+async function myFunction() {
+  return "success"; // or Promise.resolve("success");
+}
+
+myFunction().then(
+  function(value) {myDisplayer(value);},
+  function(error) {myDisplayer(error);}
+);
+
+*********************************************************************************
+JavaScript Async (cont.)
+
+keyword await makes the function wait for a promise
+
+async function myDisplay() {
+  let myPromise = new Promise(function(myResolve, myReject) {
+    myResolve("Hello World!");
+  });
+  document.getElementById("demo").innerHTML = await myPromise;
+}
+
+myDisplay();
+
+*********************************************************************************
+Promise Chains
+
+Methods promise.then(), promise.catch(), and promise.finally() are 
+used to associate further action with a promise that becomes settled.
+
+These methods also return a newly generated promise object, which can
+optionally be used for chaining
+
+const myPromise = 
+    (new Promise(myExecutorFunc)) //myExecutorFunc is function(myResolve, myReject)
+    .then(handleFulfilledA, handleRejectedA)
+    .then(handleFulfilledB, handleRejectedB)
+
+//or perhaps better
+const myPromise = 
+    (new Promise(myExecutorFunc))
+    .then(handleFulfilledA)
+    .then(handleFulfilledB)
+    .catch(handleRejectedAny)
+
+
+
+
+
+
+
+
+
+    -->
+    <img src="/images/promises.png" alt="" />
+  </body>
+</html>
