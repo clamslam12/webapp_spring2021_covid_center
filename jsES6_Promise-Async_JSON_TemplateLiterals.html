@@ -7,8 +7,8 @@
     <title>JS - ES6</title>
   </head>
   <body>
-      <h1>Promise in JavaScript</h1>
-      <h3>3 States: Pending, Fulfilled, Rejected</h3>
+    <h1>Promise in JavaScript</h1>
+    <h3>3 States: Pending, Fulfilled, Rejected</h3>
     <!--
         ECMAScript 6, also known as ES6 and ECMAScript 2015, was the second major revision to JavaScript.
 
@@ -154,10 +154,178 @@ const myPromise =
 
 //or perhaps better
 const myPromise = 
-    (new Promise(myExecutorFunc))
+    (new Promise(myExecutorFunc)) //myExecutorFunc is function(myResolve, myReject)
     .then(handleFulfilledA)
     .then(handleFulfilledB)
     .catch(handleRejectedAny)
+
+*********************************************************************************
+//
+// When you return a value in the then() method, the then() method returns a new Promise that immediately resolves to the return value.
+// Also, you can return a new promise in the then() method, like this:
+//
+//Also, you can return a new promise in the then() method, like this:
+//
+// let p = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         resolve(10);
+//     }, 3 * 100);
+// });
+
+// p.then((result) => {
+//     console.log(result);
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve(result * 2);
+//         }, 3 * 1000);
+//     });
+// }).then((result) => {
+//     console.log(result);
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve(result * 3);
+//         }, 3 * 1000);
+//     });
+// }).then(result => console.log(result));
+//
+// Output:
+//
+// 10
+// 20
+// 60
+//This example shows 10, 20 and 60 after every 3 seconds. This code pattern allows you to execute some tasks in sequence.
+//
+// The following refactors the above example:
+
+// function generateNumber(num) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve(num);
+//         }, 3 * 1000);
+//     });
+// }
+
+// generateNumber(10)
+//     .then(result => {
+//         console.log(result);
+//         return generateNumber(result * 2);
+//     })
+//     .then((result) => {
+//         console.log(result);
+//         return generateNumber(result * 3);
+//     })
+//     .then(result => console.log(result));
+
+*********************************************************************************
+Template literals
+
+Template literals are string literals allowing embedded expressions.
+
+defined using ` ` (not ' ' or " ")
+
+multi-line strings
+
+let str = `string text line 1
+string text line 2
+`
+expression interpoloation
+let a = 5;
+let b = 10;
+console.log(`add result is ${a + b}`);
+Tagged templates (self-study)
+
+*********************************************************************************
+JSON
+
+JSON is a format for storing and transporting data.
+Stands for JavaScript Object Notation
+It is a lightweight data interchange format
+It is language independent
+It is "self-describing" and easy to understand
+The official Internet media type for JSON is application/json.
+JSON filenames use the extension .json.
+Syntax is exactly like object literals, except that:
+Property names must be in double quotes
+Property string-type values must be in double quotes.
+
+*********************************************************************************
+JSON (cont.)
+
+---JavaScript Object literal
+var x = {
+    firstName:"John", 
+    lastName:"Doe", 
+    address: {
+        street:"John's address",
+        city: "Denver"
+    }
+};
+
+---JSON
+{
+  "firstName":"John", 
+  "lastName":"Doe"
+}
+JSON Arrays: written inside []
+{ 
+  "employees":[
+    {"firstName":"John", "lastName":"Doe"},
+    {"firstName":"Anna", "lastName":"Smith"},
+    {"firstName":"Peter", "lastName":"Jones"}
+  ]
+}
+
+*********************************************************************************
+Accessing JSON object Values
+
+myObj = { "name": "John", "age":30, "car": null };
+x = myObj.name; //John
+y = myObj["name"]; //John
+
+*********************************************************************************
+Sample JSON object
+
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "isAlive": true,
+  "age": 27,
+  "address": { //JSON object as a value; usually to expand upon a key like address
+    "streetAddress": "21 2nd Street",
+    "city": "New York",
+    "state": "NY",
+    "postalCode": "10021-3100"
+  },
+  "phoneNumbers": [//value as an array of JSON objects; usually to store list of something 
+    {
+      "type": "home",
+      "number": "212 555-1234"
+    },
+    {
+      "type": "office",
+      "number": "646 555-4567"
+    }
+  ],
+  "children": [],
+  "spouse": null
+}
+
+*********************************************************************************
+JSON Conversion
+
+Converting a JSON Text to a JS Object literal
+
+A common use of JSON is to read data from a web server, and display the data in a web page
+
+JavaScript built-in function JSON.parse() to convert a JSON string into a JavaScript object
+
+Converting a JS Object literal to a JSON text:
+
+JSON.stringify() to convert an object literal to a JSON object (string).
+
+
+
+
 
 
 
