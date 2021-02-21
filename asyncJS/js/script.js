@@ -27,7 +27,7 @@ let myPromise = new Promise(function (myResolve, myReject) {
 
   setTimeout(function () {
     myResolve("hello world!");
-  }, 3000);
+  }, 5000);
 
 //   if (x % 2 == 0) {
 //     myResolve("Win");
@@ -45,4 +45,19 @@ myPromise.then(
   }
 );
 
-document.getElementById("div2").innerHTML = "here while async is happening";
+document.getElementById("div2").innerHTML = "here while myPromise is happening";
+
+/////promise 3
+let p3 = new Promise((resolve, reject)=>{
+    let promise3 = 'promise3'
+    setTimeout(resolve, 2000, promise3);//invoking resolve(promise3) after 2 seconds
+}).then((val)=>{
+    let x2 = val+', x2';
+    return x2;
+}).then((val2)=>{
+    console.log(val2); //prints promise3, x2
+}).catch((err)=>{
+    console.log('error occurred: ', err);
+});
+
+document.getElementById('div3').innerHTML = 'here while promise3 is happening';
