@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajax</title>
+  </head>
+  <body>
+    <h1>Ajax</h1>
+    <div id="mainDiv"></div>
+
+    <button type="button" onclick="loadDoc()">Change content</button>
+
+    <button type="button" onclick="callAPI()">
+      Load data from a test server
+    </button>
+
+    <button type="button" onclick="searchGoogleBooks()">
+      Find all Harry Potter books on Google Books
+    </button>
+    <img src="ajax.gif" alt="" />
+    <h2>REST API</h2>
+    <img src="rest.png" width="600" height="200" alt="" />
+
+    <!--
+        AJAX
+
+AJAX is a set of web development techniques using many web technologies on the client-side to create asynchronous web applications.
+
+With Ajax, web applications can send and retrieve data from a server asynchronously (in the background) without interfering with the display and behaviour of the existing page.
+
+By decoupling the data interchange layer from the presentation layer, Ajax allows web pages and, by extension, web applications, to change content dynamically without the need to reload the entire page.
+
+The built-in XMLHttpRequest object, or since 2017 the new fetch() function within JavaScript, is commonly used to execute Ajax on webpages.
+
+Ajax is not a new technology or language, just existing technologies used in new ways.
+
+*********************************************************************
+XMLHttpRequest object.
+
+The keystone of AJAX is the XMLHttpRequest object.
+XMLHttpRequest object is used to exchange data with a server behind the scenes.
+var xhttp = new XMLHttpRequest();
+
+*********************************************************************
+Send a Request To a Server
+
+xhttp.open("GET", "ajax_info.txt", true);
+xhttp.send();
+
+open(method, url, async):	Specifies the type of request
+
+method: the type of request: GET or POST
+url: the server (file) location
+async: true (asynchronous) or false (synchronous)
+send():	Sends the request to the server (used for GET)
+send(string)	Sends the request to the server (used for POST)
+
+*********************************************************************
+Get Requests
+
+xhttp.open("GET", "/users", true);
+xhttp.send();
+
+*********************************************************************
+Post Requests
+
+xhttp.open("POST", "users/create", true);
+xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xhttp.send("fname=Henry&lname=Ford");
+Server Request Properties
+
+setRequestHeader(header, value):	Adds HTTP headers to the request
+
+application/x-www-form-urlencoded: 
+the keys and values of data (e.g. user inputs in a form) 
+are encoded in key-value tuples separated by '&', with a '=' between 
+the key and the value (same as a query string) and sent in the body of post request.
+
+*********************************************************************
+onreadystatechange Property
+
+With the XMLHttpRequest object you can define a function to be executed when the request receives an answer.
+
+The function is defined in the onreadystatechange property of the XMLHttpResponse object:
+
+xhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    document.getElementById("mainDiv").innerHTML = this.responseText;
+  }
+};
+xhttp.open("GET", "newContent.html", true);
+xhttp.send();
+
+*********************************************************************
+onreadystatechange Property (cont.)
+
+Server Response Properties
+
+responseText: get the response data as a string
+getResponseHeader():	Returns specific header information from the server resource
+getAllResponseHeaders(): Returns all the header information from the server resource
+
+*********************************************************************
+onreadystatechange Property
+
+readyState:	Holds the status of the XMLHttpRequest.
+0: request not initialized
+1: server connection established
+2: request received
+3: processing request
+4: request finished and response is ready
+
+status
+200: "OK"
+403: "Forbidden"
+404: "Page not found"
+
+statusText:	Returns the status-text (e.g. "OK" or "Not Found")
+
+*********************************************************************
+Using fetch to GET and Post data (ES6 extension)
+
+fetch (URL)
+.then(x => x.text())
+.then(y => document.getElementById("mainDiv").innerHTML = y);
+
+fetch(URL, {
+    method: 'post',
+    content-type: 'application/x-www-form-urlencoded', 
+    body: "fname=Henry&lname=Ford";
+  })
+.then(x => x.text())
+.then(y => document.getElementById("mainDiv").innerHTML = y);
+
+Note how promise chains are written.
+
+*********************************************************************
+REST APIs
+
+REST is a style of software architecture that provides a convenient and consistent approach to requesting and modifying data.
+
+REST is short for Representational State Transfer
+
+In typical RESTful APIs, the client specifies an action using an HTTP verb such as POST, GET, PUT, or DELETE.
+
+In a RESTful system, resources are stored in a data store
+
+  A client sends a request that the server perform a particular action (such as creating, retrieving, updating, or deleting a resource)
+
+  The server performs the action and sends a response, often in the form of a representation of the specified resource.
+    JSON is the most typical format used.
+
+
+    -->
+    <script src="ajax_RESTAPIScript.js"></script>
+  </body>
+</html>
