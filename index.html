@@ -15,12 +15,20 @@
       integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
       crossorigin="anonymous"
     />
+    <script src="https://unpkg.com/vue@next"></script>
     <link rel="stylesheet" href="/styles/styles.css" />
     <title>JS - ClassWork Part3 (Google Books API)</title>
   </head>
   <body>
-    <div class="container-fluid">
-      <form action="" class="form-group">
+    <div id="app">
+      <form
+        action=""
+        class="form-group"
+        v-on:submit.prevent="searchGoogleBooks"
+      >
+        <!--v-on:submit.prevent="searchGoogleBooks" 
+        //on submit, prevent default(browser refresh) and invoke searchGoogleBooks function
+      -->
         <fieldset class="border">
           <legend class="w-auto">Google Books Search</legend>
           <div class="row form-group">
@@ -35,28 +43,36 @@
                 name="txtSearch"
                 placeholder="enter keywords..."
                 class="form-control"
+                v-model="keyword"
               />
             </div>
           </div>
           <div class="row form-group">
             <div class="col-sm-4">
-              <button
-                type="button"
-                class="btn btn-primary"
-                onclick="searchGoogleBooks()"
-              >
-                Search
-              </button>
+              <button type="submit" class="btn btn-primary">Search</button>
               <button type="reset" class="btn btn-secondary">Reset</button>
             </div>
           </div>
         </fieldset>
       </form>
-      <div id="mainDiv"></div>
+      <!-- v-html same as innerHtml -->
+      <div id="mainDiv">
+        <div class="row col-sm-5" v-if="result != null">
+          found {{ (result != null)? result.totalItems: '' }} books
+        </div>
+        <div class="row">
+          <book-display
+            v-if="result != null"
+            v-for="(book, index) in result.items"
+            v-bind:key="book.id"
+            v-bind:book="JSON.stringify(book)"
+          ></book-display>
+        </div>
+      </div>
     </div>
 
     <!-- Optional JavaScript -->
-    <script src="/js/classWorkJSPart3.js"></script>
+    <!--<script src="/js/classWorkJSPart3.js"></script>-->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -73,5 +89,10 @@
       integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
       crossorigin="anonymous"
     ></script>
+    <script src="js/vue.js"></script>
+    <script src="js/components/bookDisplay.js"></script>
+    <script>
+      const mountedApp = app.mount("#app");
+    </script>
   </body>
 </html>
