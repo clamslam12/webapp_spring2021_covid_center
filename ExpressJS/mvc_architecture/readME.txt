@@ -1,0 +1,1 @@
+[express projectName] -> create a generic MVC structure for your project
